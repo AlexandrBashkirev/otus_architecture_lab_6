@@ -11,7 +11,7 @@ namespace otus_architecture_lab_6
             string outPath = cmds.GetValue("-op");
             string method = cmds.GetValue("-m");
 
-            MatrixWorker matrixWorker = new MatrixWorkerBuilder().Construct(method);
+            IMatrixWorker matrixWorker = new MatrixWorkerBuilder().Construct(method);
 
             matrixWorker.Init(inPath);
             matrixWorker.Compute();

@@ -1,10 +1,10 @@
 ﻿
 namespace otus_architecture_lab_6
 {
-    abstract class MatrixWorker
+    interface IMatrixWorker
     {
-        public abstract void Init(string param);
-        public abstract void Compute();
-        public abstract void WriteAnswer(string resultPath);
+        void Init(string param);
+        void Compute();
+        void WriteAnswer(string resultPath);
     }
 }

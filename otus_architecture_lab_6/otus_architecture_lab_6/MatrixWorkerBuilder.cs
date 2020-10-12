@@ -5,7 +5,7 @@ namespace otus_architecture_lab_6
 {
     class MatrixWorkerBuilder
     {
-        public MatrixWorker Construct(string t)
+        public IMatrixWorker Construct(string t)
         {
             switch(t)
             {

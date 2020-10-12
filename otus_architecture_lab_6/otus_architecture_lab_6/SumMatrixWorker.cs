@@ -3,7 +3,7 @@
 
 namespace otus_architecture_lab_6
 {
-    class SumMatrixWorker : MatrixWorker
+    class SumMatrixWorker : IMatrixWorker
     {
         #region Variables
 
@@ -17,7 +17,7 @@ namespace otus_architecture_lab_6
 
         #region Methods
 
-        public override void Init(string param)
+        public void Init(string param)
         {
             string[] paths = param.Split(',');
 
@@ -31,7 +31,7 @@ namespace otus_architecture_lab_6
         }
 
 
-        public override void Compute()
+        public void Compute()
         {
             ICommand cmd = new MatrixSumCmd(matrixA, matrixB);
             cmd.SetResultCallback((sucess, result) =>
@@ -42,7 +42,7 @@ namespace otus_architecture_lab_6
         }
 
 
-        public override void WriteAnswer(string resultPath)
+        public void WriteAnswer(string resultPath)
         {
             IMatrixWriter matrixWriter = new MatrixWriterTextFile(resultPath);
             matrixWriter.Write(result);

@@ -3,7 +3,7 @@
 
 namespace otus_architecture_lab_6
 {
-    class DeterminantMatrixWorker : MatrixWorker
+    class DeterminantMatrixWorker : IMatrixWorker
     {
         #region Variables
 
@@ -16,14 +16,14 @@ namespace otus_architecture_lab_6
 
         #region Methods
 
-        public override void Init(string path)
+        public void Init(string path)
         {
             IMatrixReader matrixReader = new MatrixReaderTextFile(path);
             matrix = matrixReader.Read();
         }
 
 
-        public override void Compute()
+        public void Compute()
         {
             ICommand cmd = new MatrixDeterminantCmd(matrix);
             cmd.SetResultCallback((sucess, result) =>
@@ -34,7 +34,7 @@ namespace otus_architecture_lab_6
         }
 
 
-        public override void WriteAnswer(string resultPath)
+        public void WriteAnswer(string resultPath)
         {
             using (StreamWriter file = new StreamWriter(resultPath))
             {
